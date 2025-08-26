@@ -1,0 +1,90 @@
+<form class="w-full p-4" [formGroup]="form" (ngSubmit)="submit()">
+  <!-- Grid layout responsivo DaisyUI/Tailwind -->
+  <div class="grid grid-cols-1 lg:grid-cols-6 gap-4 mb-4 w-full">
+
+    <!-- Fecha -->
+    <div class="form-control w-full">
+      <label class="label" for="fecha">
+        <span class="label-text">Fecha</span>
+      </label>
+      <input type="date" id="fecha" formControlName="fecha" class="input input-bordered w-full" />
+        @if(formValidationUtils.isInvalidField(form, 'fecha')){
+          <span class="text-xs text-red-500">
+            {{formValidationUtils.getFieldError(form, 'fecha')}}
+          </span>
+        }
+    </div>
+
+    <!-- Hora entrada -->
+    <div class="form-control w-full">
+      <label class="label" for="horaEntrada">
+        <span class="label-text">Hora entrada</span>
+      </label>
+      <input type="time" id="horaTeoricaEntrada" formControlName="horaTeoricaEntrada" class="input input-bordered w-full" />
+      @if(formValidationUtils.isInvalidField(form, 'horaTeoricaEntrada')){
+          <span class="text-xs text-red-500">
+            {{formValidationUtils.getFieldError(form, 'horaTeoricaEntrada')}}
+          </span>
+      }
+    </div>
+
+    <!-- Hora salida -->
+    <div class="form-control w-full">
+      <label class="label" for="horaTeoricaSalida">
+        <span class="label-text">Hora salida</span>
+      </label>
+      <input type="time" id="horaTeoricaSalida" formControlName="horaTeoricaSalida" class="input input-bordered w-full" />
+       @if(formValidationUtils.isInvalidField(form, 'horaTeoricaSalida')){
+          <span class="text-xs text-red-500">
+            {{formValidationUtils.getFieldError(form, 'horaTeoricaSalida')}}
+          </span>
+      }
+    </div>
+
+    <!-- Hora entrada (real) -->
+    <div class="form-control w-full">
+      <label class="label" for="horaRealEntrada">
+        <span class="label-text">Hora entrada (real)</span>
+      </label>
+      <input type="time" id="horaRealEntrada" formControlName="horaRealEntrada" class="input input-bordered w-full" />
+      @if(formValidationUtils.isInvalidField(form, 'horaRealEntrada')){
+          <span class="text-xs text-red-500">
+            {{formValidationUtils.getFieldError(form, 'horaRealEntrada')}}
+          </span>
+      }
+    </div>
+
+    <!-- Hora salida (real) -->
+    <div class="form-control w-full">
+      <label class="label" for="horaRealSalida">
+        <span class="label-text">Hora salida (real)</span>
+      </label>
+      <input type="time" id="horaRealSalida" formControlName="horaRealSalida" class="input input-bordered w-full" />
+      @if(formValidationUtils.isInvalidField(form, 'horaRealSalida')){
+          <span class="text-xs text-red-500">
+            {{formValidationUtils.getFieldError(form, 'horaRealSalida')}}
+          </span>
+      }
+    </div>
+  </div>
+
+  <div class="grid grid-cols-1 lg:grid-cols-6 gap-4 items-end w-full">
+    <!-- Observaciones: ocupa 5 columnas en lg, 1 columna en xs -->
+    <div class="form-control w-full lg:col-span-5">
+      <label class="label" for="observaciones">
+        <span class="label-text">Observaciones <span class="text-xs"> (Opcional)</span></span>
+      </label>
+      <input id="observaciones" formControlName="observaciones" rows="2" class="input input-bordered w-full">
+    </div>
+    <!-- Botón enviar -->
+    <div class="form-control w-full">
+      <button type="submit" class="btn btn-secondary w-full mt-4 lg:mt-0">Guardar</button>
+    </div>
+  </div>
+</form>
+
+@if (wasSaved()) {
+  <div class="alert alert-success fixed bottom-4 right-4 w80 animate-fadeIn">
+    <span>Datos guardados</span>
+  </div>
+}

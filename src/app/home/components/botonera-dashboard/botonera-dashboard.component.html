@@ -1,0 +1,13 @@
+<div>
+  <details class="dropdown" [open]="open" (toggle)="onToggle($event)">
+    <summary class="btn m-1">{{ getNombreMes() }}</summary>
+    <ul class="menu dropdown-content bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
+      @for(opcion of opciones; track opcion.value) {
+      <li>
+        <a (click)="seleccionar(opcion)">{{ opcion.label }}</a>
+      </li>
+      }
+    </ul>
+  </details>
+  <button class="btn btn-secondary" routerLink="/home/new-new-new-new">Nuevo</button>
+</div>

@@ -1,0 +1,10 @@
+@if(this.jornadaResource.isLoading()){
+  <div class="flex justify-center items-center h-screen">
+    <div class="loading loading-spinner loading-lg"></div>
+  </div>
+}
+
+@if(this.jornadaResource.hasValue()){
+  <app-jornada-form [jornada]="jornadaResource.value()"></app-jornada-form>
+}
+

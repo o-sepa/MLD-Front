@@ -1,0 +1,7 @@
+<app-botonera-dashboard></app-botonera-dashboard>
+
+@if(jornadasResource.hasValue()){
+  <app-data-table [jornadas]="jornadasResource.value()" (onDelete)="onDelete($event)"></app-data-table>
+}@else {
+  <p>No hay datos</p>
+}
